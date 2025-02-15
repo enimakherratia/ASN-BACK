@@ -77,7 +77,7 @@ npm run start
 ### **Problème CORS**  
 Si vous rencontrez un problème CORS lors de l'exécution de l'application, vous pouvez le résoudre en modifiant le fichier `main.ts`. Ajoutez ou modifiez la configuration CORS pour autoriser les origines nécessaires :
 
-Dans `main.ts`, remplacez ou ajoutez ce code :
+Dans `main.ts`, remplacez ce code :
 
 ```typescript
 import { NestFactory } from '@nestjs/core';
