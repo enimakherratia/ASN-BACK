@@ -1,3 +1,7 @@
+Voici le texte complet mis à jour avec toutes les instructions, y compris la résolution des problèmes CORS :
+
+---
+
 # **ASN-Test - Backend NestJS avec MongoDB et Mongoose**
 
 ## **Présentation**  
@@ -48,7 +52,6 @@ Avant de commencer, assurez-vous d'avoir les prérequis suivants installés en l
 - [Node.js](https://nodejs.org/en/) (dernière version stable)  
 - [MongoDB](https://www.mongodb.com/try/download/community) (installé et en fonctionnement)
 
-
 ### **Démarrer l'application Backend**  
 
 Clonez le projet :  
@@ -69,4 +72,26 @@ npm install
 Démarrez le serveur :  
 ```bash
 npm run start
+```
+
+### **Problème CORS**  
+Si vous rencontrez un problème CORS lors de l'exécution de l'application, vous pouvez le résoudre en modifiant le fichier `main.ts`. Ajoutez ou modifiez la configuration CORS pour autoriser les origines nécessaires :
+
+Dans `main.ts`, remplacez ou ajoutez ce code :
+
+```typescript
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app.module';
+
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+  app.enableCors({
+    origin: 'http://localhost:4200',  // Ajoutez l'URL de votre frontend ici
+    methods: 'GET,POST,PUT,DELETE',
+    allowedHeaders: 'Content-Type, Authorization',
+    credentials: true,
+  });
+  await app.listen(3000);
+}
+bootstrap();
 ```
