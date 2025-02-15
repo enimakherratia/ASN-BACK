@@ -8,13 +8,16 @@ import { AuthMiddleware } from './auth.middleware';
 
 @Module({
   imports: [
+    // Integrating Mongoose with the User schema for database interaction
     MongooseModule.forFeature([{ name: 'User', schema: userSchema }]),
   ],
-  controllers: [UserController],
-  providers: [UserService],
+  controllers: [UserController], // Assigning the controller to handle routes
+  providers: [UserService], // Providing the service to handle the business logic
 })
 export class UserModule {
+  // Configuring middlewares for the routes in this module
   public configure(consumer: MiddlewareConsumer) {
+    // Applying the AuthMiddleware to the routes 'user' for GET and PUT methods
     consumer
       .apply(AuthMiddleware)
       .forRoutes({path: 'user', method: RequestMethod.GET}, {path: 'user', method: RequestMethod.PUT});

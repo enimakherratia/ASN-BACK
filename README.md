@@ -1,52 +1,72 @@
+# **ASN-Test - Backend NestJS avec MongoDB et Mongoose**
 
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
-  <a href="https://mongoosejs.com/" target="blank"><img src="https://cms-assets.tutsplus.com/uploads/users/34/posts/29527/preview_image/mongoose.jpg" width="320" alt="Mongooose Logo" /></a>
+## **Présentation**  
+**ASN-Test Backend** est une API RESTful construite avec **NestJS** pour gérer le backend, utilisant **MongoDB** comme base de données et **Mongoose** pour la gestion des données. L'API reçoit des données depuis le frontend Angular, les valide, et les stocke dans MongoDB.  
+**Note :** Pour des raisons de temps, la documentation complète du backend n’a pas pu être réalisée.
 
-</p>
-# ASN-TEST
+## **Technologies et fonctionnalités clés**  
+### **Fonctionnalités principales**  
+✅ **API RESTful** pour gérer les données  
+✅ **Mongoose ORM** pour l'intégration avec MongoDB  
+✅ **Validation des données** via des DTO et des pipes  
+✅ **Gestion des erreurs** avec des filtres d'exception  
+✅ **Authentification JWT** pour sécuriser les endpoints  
 
-This project involves creating a full-stack application that allows importing data from an Excel file, sending it to a NestJS backend via an endpoint, and storing it in a MongoDB database. The application consists of an Angular frontend for importing and sending the data, and a NestJS backend for managing and storing the data.
+### **Architecture**  
+Le projet suit une architecture modulaire avec **NestJS**, permettant une gestion flexible et évolutive du backend.
 
-To Start with this  Nest-Mongo-Mongoose Impelemenatted Project, Please start with Following Steps
-
-Note:- Before Starting with this Project, Please make sure you have installed latest stabled version of [Nodejs](https://nodejs.org/en/) and [Nestjs](https://nestjs.com/)  Application in your System 
-
-
-## Follow the Below Steps
-
-
-Clone the project
-
-```bash
-  git clone 
+## **Structure des dossiers**  
+```
+├── src
+│   ├── auth
+│   │   ├── auth.module.ts
+│   │   ├── auth.controller.ts
+│   │   ├── auth.service.ts
+│   ├── products
+│   │   ├── products.module.ts
+│   │   ├── products.controller.ts
+│   │   ├── products.service.ts
+│   ├── users
+│   │   ├── user.module.ts
+│   │   ├── user.controller.ts
+│   │   ├── user.service.ts
+│   ├── shared
+│   │   ├── dto
+│   │   ├── pipes
 ```
 
-Go to the project directory
+### **Organisation du code**  
+🔹 **Auth** : Gestion de l'authentification et des tokens JWT  
+🔹 **Products** : Importation des produits depuis un fichier Excel, et manipulation des données dans MongoDB  
+🔹 **Users** : Gestion des utilisateurs et des opérations liées  
+🔹 **Shared** : Composants réutilisables (DTOs, pipes, filtres, etc.)
 
+## **Commencer avec le Backend**
+
+### **Prérequis**  
+Avant de commencer, assurez-vous d'avoir les prérequis suivants installés en local :  
+- [Node.js](https://nodejs.org/en/) (dernière version stable)  
+- [MongoDB](https://www.mongodb.com/try/download/community) (installé et en fonctionnement)
+
+
+### **Démarrer l'application Backend**  
+
+Clonez le projet :  
 ```bash
-  cd my-project
+git clone <repository-url>
 ```
 
-Install dependencies
-
+Accédez au répertoire du projet :  
 ```bash
-  npm install
-```
-if you feel like you need updated versions of the dependencies, then run
-```bash
-  npm update
+cd ASNBACK
 ```
 
-
-Start the server
-
+Installez les dépendances :  
 ```bash
-  npm run start
+npm install
 ```
 
-
-
-
-
-
+Démarrez le serveur :  
+```bash
+npm run start
+```

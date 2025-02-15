@@ -5,7 +5,7 @@ export class CreateProductDto {
   name: string;
 
   @IsDateString()
-  updated_at: string;  // Ou Date, selon ce que tu préfères
+  updated_at: string;
 
   @IsArray()
   @IsNumber({}, { each: true })

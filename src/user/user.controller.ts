@@ -1,6 +1,6 @@
 import { Get, Post, Body, Put, Delete, Param, Controller, UsePipes } from '@nestjs/common';
 import { UserService } from './user.service';
-import { FindUserResponse, UserRO } from "./user.interface";
+import { UserRO } from "./user.interface";
 import { CreateUserDto, UpdateUserDto, LoginUserDto } from './dto';
 import { HttpException } from '@nestjs/common/exceptions/http.exception';
 import { User } from './user.decorator';
@@ -18,13 +18,13 @@ export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @Get('user')
-  async findMe(@User('email') email: string): Promise<UserRO | FindUserResponse> {
+  async findMe(@User('email') email: string): Promise<UserRO> {
     return await this.userService.findByEmail(email);
   }
 
   @Put('user')
-  async update(@User('id') userId: string, @Body('user') userData: UpdateUserDto) {
-    return await this.userService.update(userId, userData);
+  async update(@User('email') email: string, @Body('user') userData: UpdateUserDto) {
+    return await this.userService.update(email, userData);
   }
 
   @UsePipes(new ValidationPipe())

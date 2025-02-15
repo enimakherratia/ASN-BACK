@@ -9,8 +9,3 @@ export interface UserData {
 export interface UserRO {
   user: UserData;
 }
-
-export type FindUserResponse = {
-  message?: string;  // Message optionnel, utilisé si l'utilisateur n'est pas trouvé
-  user: UserRO;  // L'utilisateur ou null si l'utilisateur n'est pas trouvé
-};
